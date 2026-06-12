@@ -5,7 +5,7 @@ import { useFlora } from "@/lib/store";
 
 export const Route = createFileRoute("/advisor")({
   head: () => ({ meta: [{ title: "AI Advisor · Flora AI" }, { name: "description", content: "An oracle for your garden, fluent in chlorophyll." }] }),
-  component: Advisor;
+  component: Advisor,
 });
 
 interface Msg { role: "user" | "ai"; text: string }
