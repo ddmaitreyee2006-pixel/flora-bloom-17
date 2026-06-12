@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Fragment } from "react";
 import { AppShell } from "@/components/AppShell";
 import { LineChart } from "@/components/flora/LineChart";
 import { SENSORS, useFlora } from "@/lib/store";
@@ -50,8 +51,8 @@ function Analytics() {
                 <div key={h} className="text-[10px] font-mono text-muted-foreground text-center">{h.toString().padStart(2, "0")}</div>
               ))}
               {days.map((d, di) => (
-                <>
-                  <div key={d} className="text-[10px] font-mono text-muted-foreground pr-2 self-center">{d}</div>
+                <Fragment key={d}>
+                  <div className="text-[10px] font-mono text-muted-foreground pr-2 self-center">{d}</div>
                   {hours.map((h) => {
                     const v = cell(di, h / 2);
                     return (
@@ -63,7 +64,7 @@ function Analytics() {
                       />
                     );
                   })}
-                </>
+                </Fragment>
               ))}
             </div>
           </div>

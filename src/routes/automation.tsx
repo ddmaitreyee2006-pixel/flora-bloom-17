@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { AppShell } from "@/components/AppShell";
 import { toast } from "sonner";
 
@@ -71,8 +71,8 @@ function Automation() {
                 <div key={d} className="text-center">{d}</div>
               ))}
               {["06:00", "09:00", "12:00", "15:00", "18:00", "21:00"].map((t, ti) => (
-                <>
-                  <div key={t} className="self-center">{t}</div>
+                <Fragment key={t}>
+                  <div className="self-center">{t}</div>
                   {Array.from({ length: 7 }).map((_, di) => {
                     const active = (ti + di) % 3 === 0;
                     return (
@@ -83,7 +83,7 @@ function Automation() {
                       />
                     );
                   })}
-                </>
+                </Fragment>
               ))}
             </div>
           </div>
